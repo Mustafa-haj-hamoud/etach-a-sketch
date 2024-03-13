@@ -11,6 +11,11 @@ function createSquare(row,sideLength) {
     square.style["width"] = `${sideLength}px`;
     square.style["height"] = `${sideLength}px`;
     row.appendChild(square);
+
+    square.addEventListener("mouseover", (event) => {
+        const targetSquare = event.target;
+        targetSquare.style.backgroundColor = "black";
+    });
 }
 
 function createRow(squareCount){
@@ -31,4 +36,7 @@ function createGrid(rowCount) {
 
 createGrid(16);
 
-//add event listeners to each square in the grid
+
+//WORK PLAN:
+//add "mouseover" event listeners to all squares upon creation
+//create function to change the background colour of the square to black
