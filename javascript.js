@@ -13,7 +13,6 @@ function createSquare(row,sideLength) {
     row.appendChild(square);
 }
 
-//Create the full grid
 function createRow(squareCount){
     let squareSideLength = Number(containerWidth) / squareCount;
     const row = document.createElement("div");
@@ -31,4 +30,5 @@ function createGrid(rowCount) {
 }
 
 createGrid(16);
+
 //add event listeners to each square in the grid
