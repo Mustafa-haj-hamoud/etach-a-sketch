@@ -1,6 +1,7 @@
 //get container width to calculate the side length of each square
 const gridContainer = document.querySelector("#grid-container");
 const containerWidth = gridContainer.getBoundingClientRect().width;
+let mouseDown = false;
 
 
 function createSquare(row,sideLength) {
@@ -11,11 +12,25 @@ function createSquare(row,sideLength) {
     square.style["width"] = `${sideLength}px`;
     square.style["height"] = `${sideLength}px`;
     row.appendChild(square);
+    createSquareEventListener(square);
 
-    square.addEventListener("mouseover", (event) => {
-        const targetSquare = event.target;
-        targetSquare.style.backgroundColor = "black";
+}
+
+//function only allows square to fill when the mouse is held down
+function createSquareEventListener(square) {
+    document.addEventListener("mousedown", () => {
+        mouseDown = true;
     });
+    document.addEventListener("mouseup", () => {
+        mouseDown = false;
+    });
+    square.addEventListener("mouseover", (event) => {
+        if (mouseDown === true) {
+            const targetSquare = event.target;
+            targetSquare.style.backgroundColor = "black";
+        }
+    });
+
 }
 
 function createRow(squareCount){
@@ -34,7 +49,7 @@ function createGrid(rowCount) {
     }
 }
 
-createGrid(16);
+createGrid(40);
 
 
 //WORK PLAN:
