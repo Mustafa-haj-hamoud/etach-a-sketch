@@ -1,0 +1,20 @@
+body {
+    display:flex;
+    justify-content: center;
+
+}
+
+#grid-container {
+    width: 800px;
+    background-color: aqua;
+}
+
+.row {
+    display:flex;
+}
+
+.square {
+    flex:1 1 100%;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
