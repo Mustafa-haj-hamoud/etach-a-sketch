@@ -5,8 +5,7 @@ body {
 }
 
 #grid-container {
-    width: 800px;
-    background-color: aqua;
+    width: 600px;
 }
 
 .row {
@@ -15,6 +14,7 @@ body {
 
 .square {
     flex:1 1 100%;
-    border: 1px solid blue;
+    border: 0.5px solid gray;
     box-sizing: border-box;
+    user-select: none;
 }
