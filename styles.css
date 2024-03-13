@@ -18,3 +18,7 @@ body {
     box-sizing: border-box;
     user-select: none;
 }
+
+.square:hover {
+    background-color: rgb(223, 215, 215);
+}
