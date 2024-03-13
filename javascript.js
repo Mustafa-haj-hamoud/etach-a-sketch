@@ -1,14 +1,21 @@
 //get container width to calculate the side length of each square
 const gridContainer = document.querySelector("#grid-container");
 const containerWidth = gridContainer.getBoundingClientRect().width;
+
 let mouseDown = false;
+document.addEventListener("mousedown", () => {
+    mouseDown = true;
+});
+document.addEventListener("mouseup", () => {
+    mouseDown = false;
+});
 
 
 function createSquare(row,sideLength) {
     const square = document.createElement("div");
     square.classList.add("square");
-    square.style["min-width"] = `${sideLength}px`;
-    square.style["min-height"] = `${sideLength}px`;
+/*     square.style["min-width"] = `${sideLength}px`;
+    square.style["min-height"] = `${sideLength}px`; */
     square.style["width"] = `${sideLength}px`;
     square.style["height"] = `${sideLength}px`;
     row.appendChild(square);
@@ -18,19 +25,12 @@ function createSquare(row,sideLength) {
 
 //function only allows square to fill when the mouse is held down
 function createSquareEventListener(square) {
-    document.addEventListener("mousedown", () => {
-        mouseDown = true;
-    });
-    document.addEventListener("mouseup", () => {
-        mouseDown = false;
-    });
     square.addEventListener("mouseover", (event) => {
         if (mouseDown === true) {
             const targetSquare = event.target;
-            targetSquare.style.backgroundColor = "black";
+            colorBackgroundRandomly(targetSquare);
         }
     });
-
 }
 
 function createRow(squareCount){
@@ -49,9 +49,11 @@ function createGrid(rowCount) {
     }
 }
 
+function colorBackgroundRandomly(element){
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    element.style.backgroundColor = `rgb(${red},${green},${blue})`;
+}
+
 createGrid(40);
-
-
-//WORK PLAN:
-//add "mouseover" event listeners to all squares upon creation
-//create function to change the background colour of the square to black
