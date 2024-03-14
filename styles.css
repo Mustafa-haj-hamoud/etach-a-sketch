@@ -4,9 +4,32 @@ body {
 
 }
 
+#container {
+    margin: 2rem;
+}
+
 #grid-container {
-    width: 90vh;
+    flex:5 0 100%;
+    width: 80vh;
+    height: 80vh;
+    max-width: 80vh;
+    max-height: 80vh;
     border: 4px dashed gray;
+}
+
+.flex {
+    display:flex;
+    gap: 3rem;
+}
+
+.flex-col {
+    display:flex;
+    flex-direction: column;
+}
+
+.left-panel {
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .row {
@@ -22,3 +45,4 @@ body {
 .square:hover {
     background-color: rgb(223, 215, 215);
 }
+
