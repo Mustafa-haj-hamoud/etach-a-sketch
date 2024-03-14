@@ -11,7 +11,11 @@
         <div class="flex">
             <div class="flex-col left-panel">
                 <div class="title">Etch a Sketch</div>
-                <button class="rst-btn">Reset</button>
+                <div>                
+                    <input type="range" min="10" max="60" value="16" id="slider">
+                    <span id="slider-text">16</span>
+                    <div class="center"><button class="rst-btn">Reset</button></div>
+                </div>
             </div>
             <div id="grid-container"></div>
         </div>

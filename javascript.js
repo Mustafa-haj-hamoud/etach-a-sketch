@@ -2,7 +2,17 @@
 const gridContainer = document.querySelector("#grid-container");
 const containerWidth = gridContainer.getBoundingClientRect().width;
 const resetButton = document.querySelector(".rst-btn");
+const slider = document.querySelector("#slider");
+const sliderText = document.querySelector("#slider-text");
+let squareCount = slider.value;
+
 resetButton.addEventListener("click", resetGrid);
+slider.addEventListener("input",() => {
+    sliderText.textContent = slider.value;
+    squareCount = slider.value;
+});
+
+createGrid(squareCount);
 
 let mouseDown = false;
 document.addEventListener("mousedown", () => {
@@ -61,9 +71,5 @@ function resetGrid(){
     squares.forEach((square) => {
         square.remove();
     });
-    createGrid(40);
+    createGrid(squareCount);
 }
-
-
-
-createGrid(40);
