@@ -27,6 +27,18 @@ body {
     flex-direction: column;
 }
 
+.title {
+    font-family: cursive;
+    font-size: xx-large;
+}
+
+.rst-btn {
+    font-size: x-large;
+    font-family: cursive;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+}
+
 .left-panel {
     align-items: center;
     justify-content: space-evenly;

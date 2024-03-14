@@ -1,6 +1,8 @@
 //get container width to calculate the side length of each square
 const gridContainer = document.querySelector("#grid-container");
 const containerWidth = gridContainer.getBoundingClientRect().width;
+const resetButton = document.querySelector(".rst-btn");
+resetButton.addEventListener("click", resetGrid);
 
 let mouseDown = false;
 document.addEventListener("mousedown", () => {
@@ -14,8 +16,6 @@ document.addEventListener("mouseup", () => {
 function createSquare(row,sideLength) {
     const square = document.createElement("div");
     square.classList.add("square");
-/*     square.style["min-width"] = `${sideLength}px`;
-    square.style["min-height"] = `${sideLength}px`; */
     square.style["width"] = `${sideLength}px`;
     square.style["height"] = `${sideLength}px`;
     row.appendChild(square);
@@ -55,5 +55,15 @@ function colorBackgroundRandomly(element){
     let blue = Math.floor(Math.random() * 255);
     element.style.backgroundColor = `rgb(${red},${green},${blue})`;
 }
+
+function resetGrid(){
+    let squares = document.querySelectorAll(".row div");
+    squares.forEach((square) => {
+        square.remove();
+    });
+    createGrid(40);
+}
+
+
 
 createGrid(40);
